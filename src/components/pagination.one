@@ -1,0 +1,43 @@
+ai logic ta pagination lagate gele use korte hoba
+
+<div className="container d-flex justify-content-between">
+          <button
+            disabled={page <= 1} // Disable if on the first page
+            type="button"
+            className="btn btn-dark"
+            onClick={this.handlePrevClick}
+          >
+            &larr; Previous
+          </button>
+
+          <button
+            disabled={page >= Math.ceil(totalResults / pageSize)} // Disable if there are no more pages
+            type="button"
+            className="btn btn-dark"
+            onClick={this.handleNextClick}
+          >
+            Next &rarr;
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+        // Handle Previous button click ai function ta abante hoba
+  handlePrevClick = async () => {
+    this.setState({ page: this.state.page - 1 }, () => {
+      this.updateNews(); // Fetch the previous page of news
+    });
+  };
+
+  // Handle Next button click ai function ta banate hoba
+  handleNextClick = async () => {
+    this.setState({ page: this.state.page + 1 }, () => {
+      this.updateNews(); // Fetch the next page of news
+    });
+  };
+
